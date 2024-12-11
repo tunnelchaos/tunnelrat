@@ -7,6 +7,7 @@ import (
 	"net"
 	"strings"
 
+	"git.mills.io/prologic/go-gopher"
 	"github.com/go-ldap/ldap/v3"
 	"github.com/tunnelchaos/hopger/pkg/helpers"
 )
@@ -15,30 +16,6 @@ const (
 	// LDAP server address
 	ldapServer = "ldap://guru3.eventphone.de"
 )
-
-func main() {
-	// Start listening on port 7070
-	listener, err := net.Listen("tcp", ":7070")
-	if err != nil {
-		log.Fatalf("Error starting server: %v\n", err)
-	}
-	defer listener.Close()
-
-	fmt.Println("Server is listening on port 7070...")
-
-	for {
-		// Accept a new connection
-		conn, err := listener.Accept()
-		if err != nil {
-			log.Printf("Error accepting connection: %v\n", err)
-			continue
-		}
-		fmt.Println("New connection established")
-
-		// Handle the connection in a separate goroutine
-		go handleConnection(conn)
-	}
-}
 
 func fillLine(line string, length int) string {
 	for len(line) < length {
@@ -138,4 +115,16 @@ func handleConnection(conn net.Conn) {
 	if err := scanner.Err(); err != nil {
 		log.Printf("Error reading from connection: %v\n", err)
 	}
+}
+
+func eventPhoneHandler(w gopher.ResponseWriter, r *gopher.Request) {
+}
+
+func assemblyHandler(w gopher.ResponseWriter, r *gopher.Request) {
+}
+
+func main() {
+	gopher.HandleFunc("/eventphone", eventPhoneHandler)
+	gopher.HandleFunc("/assembly", assemblyHandler)
+	log.Fatal(gopher.ListenAndServe("localhost:70", nil))
 }
