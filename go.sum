@@ -60,6 +60,10 @@ github.com/tunnelchaos/hopger v1.1.2-0.20241209105652-2911a1c10157 h1:7/69Do//f/
 github.com/tunnelchaos/hopger v1.1.2-0.20241209105652-2911a1c10157/go.mod h1:YsB2BoXOnr6F2IrjK8Mzfivsi7+6z3uI67lW9kbDj1M=
 github.com/tunnelchaos/hopger v1.1.2-0.20241211130454-9ddd71aacfcf h1:IFEJ5btNvCg1rigbQKrNJvAyBSQ55oaItWrXEeYWmJI=
 github.com/tunnelchaos/hopger v1.1.2-0.20241211130454-9ddd71aacfcf/go.mod h1:YsB2BoXOnr6F2IrjK8Mzfivsi7+6z3uI67lW9kbDj1M=
+github.com/tunnelchaos/hopger v1.1.2-0.20241211133941-666faee7f898 h1:xCgAb3U8pcZVULwwPI7pjU9Nrgj3MW4CCpeUDGufj80=
+github.com/tunnelchaos/hopger v1.1.2-0.20241211133941-666faee7f898/go.mod h1:YsB2BoXOnr6F2IrjK8Mzfivsi7+6z3uI67lW9kbDj1M=
+github.com/tunnelchaos/hopger v1.1.2-0.20241211140635-7209f668290a h1:0WWJWsZBs3r2DfLRAdAzbhAkGO4zmyuFYHYEohzgwCI=
+github.com/tunnelchaos/hopger v1.1.2-0.20241211140635-7209f668290a/go.mod h1:YsB2BoXOnr6F2IrjK8Mzfivsi7+6z3uI67lW9kbDj1M=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=

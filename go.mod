@@ -5,7 +5,7 @@ go 1.23.4
 require (
 	git.mills.io/prologic/go-gopher v0.0.0-20220331140345-72e36e5710a1
 	github.com/go-ldap/ldap/v3 v3.4.8
-	github.com/tunnelchaos/hopger v1.1.2-0.20241211130454-9ddd71aacfcf
+	github.com/tunnelchaos/hopger v1.1.2-0.20241211140635-7209f668290a
 )
 
 require (
