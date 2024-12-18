@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"git.mills.io/prologic/go-gopher"
+	"github.com/tunnelchaos/go-packages/config"
 	"github.com/tunnelchaos/go-packages/gopherhelpers"
 	"github.com/tunnelchaos/go-packages/helpers"
 	"golang.org/x/net/html"
@@ -18,7 +19,6 @@ import (
 const (
 	// MastodonAPIURL is the URL of the Mastodon API
 	mastodonAPIURL = "https://chaos.social/api/v2/search?q=%s&type=statuses&limit=42"
-	authtoken      = ""
 )
 
 func extractText(n *html.Node, linkList []string, linkCounter int) (string, []string, int) {
@@ -124,7 +124,7 @@ func (s Statuses) toGopher() string {
 	return result
 }
 
-func SearchMastodonHashtag(hashtag string) string {
+func SearchMastodonHashtag(hashtag string, s config.Secrets) string {
 	log.Println("Searching Mastodon for hashtag", hashtag)
 	netClinet := helpers.CreateHttpClient()
 	url := fmt.Sprintf(mastodonAPIURL, hashtag)
@@ -136,6 +136,13 @@ func SearchMastodonHashtag(hashtag string) string {
 	req.Header.Set("User-Agent", "Tunnelrat Gopher Client")
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("Content-Type", "application/json")
+	var accesstoken string
+	var ok bool
+	if accesstoken, ok = s["mastodontoken"]; !ok {
+		log.Println("No Mastodon access token found")
+		return gopherhelpers.CreateGopherInfo("No Mastodon access token found")
+	}
+	authtoken := fmt.Sprintf("Bearer %s", accesstoken)
 	req.Header.Set("Authorization", authtoken)
 	resp, err := netClinet.Do(req)
 	if err != nil {
@@ -158,7 +165,7 @@ func SearchMastodonHashtag(hashtag string) string {
 
 }
 
-func Handler(w gopher.ResponseWriter, r *gopher.Request) {
+func Handler(w gopher.ResponseWriter, r *gopher.Request, s config.Secrets) {
 	split := strings.Split(r.Selector, "\t")
 	selectors := strings.Split(split[0], "/")
 	log.Println("Mastodon Split", split)
@@ -168,5 +175,5 @@ func Handler(w gopher.ResponseWriter, r *gopher.Request) {
 		return
 	}
 	hashtag := selectors[2]
-	w.Write([]byte(SearchMastodonHashtag(hashtag)))
+	w.Write([]byte(SearchMastodonHashtag(hashtag, s)))
 }

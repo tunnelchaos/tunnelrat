@@ -2,6 +2,8 @@ git.mills.io/prologic/go-gopher v0.0.0-20220331140345-72e36e5710a1 h1:5sYPxuaO+i
 git.mills.io/prologic/go-gopher v0.0.0-20220331140345-72e36e5710a1/go.mod h1:Rh0aGFmbzlE4vjHHeQ3X3hwFS/sKy4fhTkBsqU/EufU=
 github.com/Azure/go-ntlmssp v0.0.0-20221128193559-754e69321358 h1:mFRzDkZVAjdal+s7s0MwaRv9igoPqLRdzOLzw/8Xvq8=
 github.com/Azure/go-ntlmssp v0.0.0-20221128193559-754e69321358/go.mod h1:chxPXzSsl7ZWRAuOIE23GDNzjWuZquvFlgA8xmpunjU=
+github.com/BurntSushi/toml v1.4.0 h1:kuoIxZQy2WRRk1pttg9asf+WVv6tWQuBNVmK8+nqPr0=
+github.com/BurntSushi/toml v1.4.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
 github.com/alexbrainman/sspi v0.0.0-20231016080023-1a75b4708caa h1:LHTHcTQiSGT7VVbI0o4wBRNQIgn917usHWOd6VAffYI=
 github.com/alexbrainman/sspi v0.0.0-20231016080023-1a75b4708caa/go.mod h1:cEWa1LVoE5KvSD9ONXsZrj0z6KqySlCCNKHlLzbqAt4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -49,8 +51,8 @@ github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
-github.com/tunnelchaos/go-packages v0.0.0-20241218164956-539284926907 h1:i3bq5ZifT7+nOmjzwI6TMPz1Szr+UVmxptYBlWah6bk=
-github.com/tunnelchaos/go-packages v0.0.0-20241218164956-539284926907/go.mod h1:uiWfeRJaZ9Q/czNjRFwAw2O2BWi71/vNA0wNwp08qVU=
+github.com/tunnelchaos/go-packages v0.0.0-20241218174009-48a7c8340b38 h1:hzetoSxGlhVkfQ86RCwFd2bqeDJ2n+DV3knU2hiF/8E=
+github.com/tunnelchaos/go-packages v0.0.0-20241218174009-48a7c8340b38/go.mod h1:uiWfeRJaZ9Q/czNjRFwAw2O2BWi71/vNA0wNwp08qVU=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
