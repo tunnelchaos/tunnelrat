@@ -6,6 +6,7 @@ require (
 	git.mills.io/prologic/go-gopher v0.0.0-20220331140345-72e36e5710a1
 	github.com/go-ldap/ldap/v3 v3.4.8
 	github.com/tunnelchaos/hopger v1.1.2-0.20241211140635-7209f668290a
+	golang.org/x/net v0.32.0
 )
 
 require (
@@ -14,6 +15,5 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/petermattis/goid v0.0.0-20241025130422-66cb2e6d7274 // indirect
 	github.com/sasha-s/go-deadlock v0.3.5 // indirect
-	golang.org/x/crypto v0.30.0 // indirect
-	golang.org/x/net v0.32.0 // indirect
+	golang.org/x/crypto v0.31.0 // indirect
 )
