@@ -49,8 +49,8 @@ github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
 github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
-github.com/tunnelchaos/hopger v1.1.2-0.20241211140635-7209f668290a h1:0WWJWsZBs3r2DfLRAdAzbhAkGO4zmyuFYHYEohzgwCI=
-github.com/tunnelchaos/hopger v1.1.2-0.20241211140635-7209f668290a/go.mod h1:YsB2BoXOnr6F2IrjK8Mzfivsi7+6z3uI67lW9kbDj1M=
+github.com/tunnelchaos/go-packages v0.0.0-20241218164956-539284926907 h1:i3bq5ZifT7+nOmjzwI6TMPz1Szr+UVmxptYBlWah6bk=
+github.com/tunnelchaos/go-packages v0.0.0-20241218164956-539284926907/go.mod h1:uiWfeRJaZ9Q/czNjRFwAw2O2BWi71/vNA0wNwp08qVU=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=

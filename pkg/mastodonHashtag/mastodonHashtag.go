@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"git.mills.io/prologic/go-gopher"
-	"github.com/tunnelchaos/hopger/pkg/gopherhelpers"
-	"github.com/tunnelchaos/hopger/pkg/helpers"
+	"github.com/tunnelchaos/go-packages/gopherhelpers"
+	"github.com/tunnelchaos/go-packages/helpers"
 	"golang.org/x/net/html"
 )
 

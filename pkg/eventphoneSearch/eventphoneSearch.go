@@ -7,7 +7,7 @@ import (
 
 	"git.mills.io/prologic/go-gopher"
 	"github.com/go-ldap/ldap/v3"
-	"github.com/tunnelchaos/hopger/pkg/gopherhelpers"
+	"github.com/tunnelchaos/go-packages/gopherhelpers"
 )
 
 const (
