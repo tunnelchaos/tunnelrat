@@ -7,6 +7,7 @@ import (
 
 	"git.mills.io/prologic/go-gopher"
 	"github.com/tunnelchaos/go-packages/config"
+	"github.com/tunnelchaos/tunnelrat/pkg/chaospost"
 	"github.com/tunnelchaos/tunnelrat/pkg/eventphoneSearch"
 	"github.com/tunnelchaos/tunnelrat/pkg/mastodonHashtag"
 )
@@ -31,6 +32,9 @@ func main() {
 	gopher.HandleFunc("/eventphone/", eventphoneSearch.Handler)
 	gopher.HandleFunc("/mastodon/", func(w gopher.ResponseWriter, r *gopher.Request) {
 		mastodonHashtag.Handler(w, r, secrets)
+	})
+	gopher.HandleFunc("/chaospost/", func(w gopher.ResponseWriter, r *gopher.Request) {
+		chaospost.Handler(w, r, secrets, conf.Server.Hostname, conf.Server.SearchPort)
 	})
 	port := strconv.Itoa(conf.Server.SearchPort)
 	log.Println("Listening on", port)
