@@ -84,13 +84,12 @@ func Handler(w gopher.ResponseWriter, r *gopher.Request) {
 		w.Write([]byte("Invalid request: Missing event or selector"))
 		return
 	}
+	search := ""
 	if len(split) < 2 {
-		w.Write([]byte("Invalid request: Missing search term"))
-		return
+		search = split[1]
 	}
 	event := selectors[2]
 	selector := selectors[3]
-	search := split[1]
 	log.Println("Searching Eventphone", event, selector, search)
 	response := generateResponse(event, selector, search)
 	w.Write([]byte(response))
