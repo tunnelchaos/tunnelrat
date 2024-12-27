@@ -85,7 +85,7 @@ func Handler(w gopher.ResponseWriter, r *gopher.Request) {
 		return
 	}
 	search := ""
-	if len(split) < 2 {
+	if len(split) > 1 {
 		search = split[1]
 	}
 	event := selectors[2]
