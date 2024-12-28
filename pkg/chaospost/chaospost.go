@@ -8,6 +8,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"net/http/cookiejar"
 	"net/url"
 	"strings"
 	"time"
@@ -74,7 +75,7 @@ func (t *trackResponse) toGopher() string {
 
 var currentToken csrfToken
 
-func getCSRFToken(s config.Secrets) (string, error) {
+func getCSRFToken(s config.Secrets, client *http.Client) (string, error) {
 	if currentToken.Token != "" && currentToken.Expires.After(time.Now()) {
 		return currentToken.Token, nil
 	}
@@ -89,7 +90,6 @@ func getCSRFToken(s config.Secrets) (string, error) {
 		Action: "write",
 	}
 	response := csrfTokenResponse{}
-	client := helpers.CreateHttpClient()
 	jsonData, err := json.Marshal(request)
 	if err != nil {
 		log.Println("Error marshalling request", err)
@@ -187,11 +187,6 @@ func handleSend(w gopher.ResponseWriter, r *gopher.Request, s config.Secrets, ev
 		option = true
 		arg = split[0]
 	}
-	fmt.Println("Selectors", selectors)
-	fmt.Println("Split", split)
-	fmt.Println("arg", arg)
-	fmt.Println("host", host)
-	fmt.Println("port", port)
 	response := ""
 	switch len(selectors) {
 	case 4:
@@ -212,7 +207,15 @@ func handleSend(w gopher.ResponseWriter, r *gopher.Request, s config.Secrets, ev
 			writeResponse(w, "Invalid request: Missing message")
 			return
 		}
-		token, err := getCSRFToken(s)
+		client := helpers.CreateHttpClient()
+		jar, err := cookiejar.New(nil)
+		if err != nil {
+			writeResponse(w, "Error creating cookie jar")
+			log.Println("Error creating cookie jar", err)
+			return
+		}
+		client.Jar = jar
+		token, err := getCSRFToken(s, client)
 		if err != nil {
 			writeResponse(w, "Error getting CSRF token")
 			log.Println("Error getting CSRF token", err)
@@ -224,12 +227,14 @@ func handleSend(w gopher.ResponseWriter, r *gopher.Request, s config.Secrets, ev
 			return
 		}
 		form := url.Values{}
+		form.Add("csrf_token", token)
 		form.Add("from_event_id", "-1")
 		form.Add("to_event_id", eventID)
-		form.Add("sender", selectors[3])
-		form.Add("receiver", selectors[4])
+		form.Add("sender", selectors[4])
+		form.Add("receiver", selectors[5])
 		form.Add("message", arg)
-		form.Add("check", "y")
+		form.Add("postcard_id", "-1")
+		form.Add("check", "1")
 		req, err := http.NewRequest("POST", postURL+"?json", strings.NewReader(form.Encode()))
 		if err != nil {
 			writeResponse(w, "Error creating request "+err.Error())
@@ -240,7 +245,6 @@ func handleSend(w gopher.ResponseWriter, r *gopher.Request, s config.Secrets, ev
 		req.Header.Set("X-CSRF-Token", token)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 		req.Header.Set("User-Agent", "Tunnelrat Gopher Client")
-		client := helpers.CreateHttpClient()
 		resp, err := client.Do(req)
 		if err != nil {
 			writeResponse(w, "Error sending message")
